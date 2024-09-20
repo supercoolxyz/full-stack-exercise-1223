@@ -1,0 +1,22 @@
+{
+  "name": "backend-full-stack-exercise",
+  "version": "1.0.0",
+  "description": "full-stack-exercise",
+  "private": true,
+  "main": "./app.js",
+  "scripts": {
+    "start": "ts-node src/app.ts",
+    "build": "tsc",
+    "serve": "node dist/app.js"
+  },
+  "dependencies": {
+    "http-status-codes": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.5.5",
+    "express": "^4.21.0",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.0.4"
+  }
+}
