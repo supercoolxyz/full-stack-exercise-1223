@@ -1,0 +1,35 @@
+<main class="main">
+  <div class="content">
+    <div class="grid-container-columns">
+      <div class="grid-container-columns-item">
+        <input type="text" />
+      </div>
+      <div class="grid-container-columns-item">
+        WATCH
+      </div>
+      <div class="grid-container-columns-item">
+        <button>GENERATE 2D GRID</button>
+      </div>
+    </div>
+    <div class="grid-container-columns">
+      <div class="grid-container-columns-item"></div>
+      <div class="grid-container-columns-item">
+        <app-grid [data]="grid"></app-grid>
+      </div>
+      <div class="grid-container-columns-item"></div>
+    </div>
+    <hr>
+    <div class="grid-container-columns">
+      <div class="grid-container-columns-item"></div>
+      <div class="grid-container-columns-item">
+        <span>CODE: {{code}}</span>
+      </div>
+      <div class="grid-container-columns-item"></div>
+    </div>
+
+    <!-- CODE -->
+  </div>
+</main>
+
+
+<router-outlet />

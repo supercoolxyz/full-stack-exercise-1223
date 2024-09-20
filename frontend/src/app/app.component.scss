@@ -1,0 +1,16 @@
+* {
+ font-size: 14px;
+}
+
+.grid-container-columns {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.grid-container-columns-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  padding: 4px;
+  font-size: 30px;
+  text-align: center;
+}

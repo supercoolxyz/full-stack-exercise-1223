@@ -12,6 +12,16 @@ const domain: Domain = new Domain();
 const app = express();
 app.use(express.json());
 
+
+// handling CORS from the webapp application
+app.use((request: Request, response: Response, next: any): any => {
+    response.header("Access-Control-Allow-Origin",
+        "http://localhost:4200");
+    response.header("Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 const port = 5000;
 
 // start listening 
