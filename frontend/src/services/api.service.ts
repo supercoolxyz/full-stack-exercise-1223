@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+const endpoint = "http://localhost:5000"; 
+
 @Injectable({
     providedIn: 'root'    
 })
@@ -11,11 +13,15 @@ export class ApiService {
     }
 
     getGrid(): any {
-        return this.http.get('http://localhost:5000/getgrid');
+        return this.http.get(endpoint + '/getgrid');
     }
 
     getCode(): any {
-        return this.http.get('http://localhost:5000/getcode');
+        return this.http.get(endpoint + '/getcode');
+    }
+
+    generate(): any {
+        return this.http.patch(endpoint + '/generate', null);
     }
 
 }

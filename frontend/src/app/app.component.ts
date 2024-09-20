@@ -41,6 +41,12 @@ export class AppComponent {
     clearInterval(this.updateHandle);
   }
 
+  public generate(): void {
+    this.apiService.generate().subscribe((data: any) => {
+      // this.grid = data;
+    });
+  }
+
   /**
    * 
    */
