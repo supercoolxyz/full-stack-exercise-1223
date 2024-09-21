@@ -17,12 +17,12 @@ npm run start
 
 #### endpoints
 
-##### actions
+##### actions(patch verb)
 
 /setbias
 /generate
 
-##### getters
+##### getters(get verb)
 
 /islive
 /getgrid

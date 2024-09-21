@@ -33,8 +33,10 @@ app.listen(port, () => {
 // endpoints
 
 app.patch('/setbias', (request: Request, response: Response): any => {
+    console.log("jhgjhgjhg");
     // should we validate the bias value
     let bias = request.body.bias;
+    console.log(bias);
     let code = domain.setBias(request.body.bias);
     return response.status(code).json({});
 });

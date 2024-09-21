@@ -50,6 +50,8 @@ export class Domain {
      * @returns HTTP code
      */
     public setBias(bias: string): number {
+        console.log("setBias: " + bias);
+
         if(!this._canSetBias) {
             return 409; // conflict
         }

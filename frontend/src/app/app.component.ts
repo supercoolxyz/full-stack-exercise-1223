@@ -4,8 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { ApiService } from '../services/api.service';
 
-import { GridComponent } from './components/grid/grid.component';
 import { BiasComponent } from './components/bias/bias.component';
+import { GenerateComponent } from './components/generate/generate.component';
+import { GridComponent } from './components/grid/grid.component';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +14,9 @@ import { BiasComponent } from './components/bias/bias.component';
   imports: [
     RouterOutlet,
     FormsModule,
-    GridComponent,
-    BiasComponent
-
+    BiasComponent,
+    GenerateComponent,
+    GridComponent
   ],  
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -45,12 +46,6 @@ export class AppComponent {
    */
   ngOnDestroy() {
     clearInterval(this.updateHandle);
-  }
-
-  public generate(): void {
-    this.apiService.generate().subscribe((data: any) => {
-      // this.grid = data;
-    });
   }
 
   /**

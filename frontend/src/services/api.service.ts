@@ -25,6 +25,7 @@ export class ApiService {
     }
 
     setBias(bias: string): any {
+        debugger;
         return this.http.patch(endpoint + '/setbias', {bias: bias});
     }    
 

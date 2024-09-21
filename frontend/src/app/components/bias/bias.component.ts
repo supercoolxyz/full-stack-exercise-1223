@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 
 import { ApiService } from '../../../services/api.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-bias',
   standalone: true,
   imports: [
-
+    FormsModule
   ],
   templateUrl: './bias.component.html',
   styleUrl: './bias.component.scss'
@@ -38,10 +39,12 @@ export class BiasComponent {
    */
   public inputKeypress(event: any) {
     // If the user presses the "Enter" key on the keyboard
-    if (event.key === "Enter" && this.bias.length === 1) {
-      // Cancel the default action, if needed
+    if (event.key === "Enter") {
+      event.target.blur();
       event.preventDefault();
-      this.apiService.setBias(this.bias);
+      this.apiService.setBias(this.bias).subscribe((data: any) => {
+        // this.grid = data;
+      });
     }  
   }
 }
