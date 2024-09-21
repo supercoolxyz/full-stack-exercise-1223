@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express';
+import cors from "cors";
 
 import { Domain } from "./domain";
 
@@ -12,15 +13,14 @@ const domain: Domain = new Domain();
 const app = express();
 app.use(express.json());
 
+// enabling CORS for some specific origins only.
+let corsOptions = {
+    origin : ['http://localhost:4200'],
+ };
 
-// handling CORS from the webapp application
-app.use((request: Request, response: Response, next: any): any => {
-    response.header("Access-Control-Allow-Origin",
-        "http://localhost:4200");
-    response.header("Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+ app.use(cors(corsOptions));
+
+
 
 const port = 5000;
 

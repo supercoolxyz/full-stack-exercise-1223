@@ -1,15 +1,21 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { ApiService } from '../services/api.service';
+
 import { GridComponent } from './components/grid/grid.component';
+import { BiasComponent } from './components/bias/bias.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet,
-    GridComponent
+    FormsModule,
+    GridComponent,
+    BiasComponent
+
   ],  
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
