@@ -24,4 +24,8 @@ export class ApiService {
         return this.http.patch(endpoint + '/generate', null);
     }
 
+    setBias(bias: string): any {
+        return this.http.patch(endpoint + '/setbias', {bias: bias});
+    }    
+
 }
