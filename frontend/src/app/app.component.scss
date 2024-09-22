@@ -2,7 +2,7 @@
  font-size: 14px;
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
  font-weight: bold;
- color: #8A9DA4;
+ // color: #8A9DA4;
 }
 
 .grid-container-columns {
@@ -10,10 +10,15 @@
   grid-template-columns: auto auto auto;
 }
 
-.grid-container-columns-item {
+.grid-container-column {
   background-color: rgba(255, 255, 255, 0.8);
   border: none;
   padding: 4px;
   font-size: 30px;
   text-align: center;
+}
+
+.clock {
+  width: 42px;
+  margin-top:12px;
 }

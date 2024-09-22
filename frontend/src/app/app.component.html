@@ -1,38 +1,54 @@
 <main class="main">
   <div class="content">
     <div class="grid-container-columns">
-      <div class="grid-container-columns-item">
-        <div class="center-align">
-          <app-bias></app-bias>
+      <div class="grid-container-column"></div>
+      <div class="grid-container-column">
+        <div class="grid-container-columns">
+          <div class="grid-container-column">
+            <div class="center-align">
+              <app-bias></app-bias>
+            </div>
+          </div>
+          <div class="grid-container-column">
+            <div class="center-align">
+              <img src="clock.png" alt="" class="clock">
+            </div>
+          </div>
+          <div class="grid-container-column">
+            <div class="center-align">
+              <app-generate></app-generate>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="grid-container-columns-item">
-        <div class="center-align">
-          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px">
-            <circle cx="32" cy="32" r="30" fill="#ffffff" stroke='#2196F3' strokeWidth='2' />
-          </svg>
-        </div>
-      </div>
-      <div class="grid-container-columns-item">
-        <div class="center-align">
-          <app-generate></app-generate>
-        </div>
-      </div>
+      <div class="grid-container-column"></div>
     </div>
+
+    <br>
+    <br>
+
     <div class="grid-container-columns">
-      <div class="grid-container-columns-item"></div>
-      <div class="grid-container-columns-item">
+      <div class="grid-container-column"></div>
+      <div class="grid-container-column">
         <app-grid [data]="grid"></app-grid>
       </div>
-      <div class="grid-container-columns-item"></div>
+      <div class="grid-container-column"></div>
     </div>
-    <hr>
+
+    <br>
+
     <div class="grid-container-columns">
-      <div class="grid-container-columns-item"></div>
-      <div class="grid-container-columns-item">
-        <app-code [data]="code"></app-code>
+      <div class="grid-container-column"></div>      
+      <div class="grid-container-column">
+        <div class="grid-container-columns">
+          <div class="grid-container-column"></div>
+          <div class="grid-container-column">
+            <app-code [data]="code"></app-code>
+          </div>
+          <div class="grid-container-column"></div>
+        </div>
       </div>
-      <div class="grid-container-columns-item"></div>
+      <div class="grid-container-column"></div>
     </div>
   </div>
 </main>
