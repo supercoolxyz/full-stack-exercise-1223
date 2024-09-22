@@ -33,16 +33,15 @@ app.listen(port, () => {
 // endpoints
 
 app.patch('/setbias', (request: Request, response: Response): any => {
-    console.log("jhgjhgjhg");
-    // should we validate the bias value
-    let bias = request.body.bias;
-    console.log(bias);
-    let code = domain.setBias(request.body.bias);
-    return response.status(code).json({});
+    // should we validate the bias value?
+    // let bias = request.body.bias;
+    domain.setBias(request.body.bias);
+    return response.status(200).json({});
 });
 
 app.patch('/generate', (request: Request, response: Response): any => {
-    return response.status(domain.generate()).json({});
+    domain.generate();
+    return response.status(200).json({});
 });
 
 app.get('/islive', (request: Request, response: Response): any => {

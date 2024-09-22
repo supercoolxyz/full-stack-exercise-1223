@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const endpoint = "http://localhost:5000"; 
+const endpoint = "http://localhost:5000";
 
 @Injectable({
-    providedIn: 'root'    
+    providedIn: 'root'
 })
 export class ApiService {
     constructor(
@@ -25,8 +25,7 @@ export class ApiService {
     }
 
     setBias(bias: string): any {
-        debugger;
-        return this.http.patch(endpoint + '/setbias', {bias: bias});
-    }    
+        return this.http.patch(endpoint + '/setbias', { bias: bias });
+    }
 
 }

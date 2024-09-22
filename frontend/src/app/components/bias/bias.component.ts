@@ -38,12 +38,10 @@ export class BiasComponent {
    * @param event 
    */
   public inputKeypress(event: any) {
-    // If the user presses the "Enter" key on the keyboard
     if (event.key === "Enter") {
       event.target.blur();
       event.preventDefault();
       this.apiService.setBias(this.bias).subscribe((data: any) => {
-        // this.grid = data;
       });
     }  
   }

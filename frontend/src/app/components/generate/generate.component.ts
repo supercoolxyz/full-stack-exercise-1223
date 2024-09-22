@@ -17,8 +17,7 @@ export class GenerateComponent {
 
   public generate(): void {
     this.apiService.generate().subscribe((data: any) => {
-      // this.grid = data;
+      
     });
   }
-
 }

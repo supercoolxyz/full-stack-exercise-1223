@@ -24,7 +24,7 @@ export class Domain {
 
     constructor() {
         // initialize the grid with empty cells
-        this._grid = new Array<string>(SIZE).fill("");
+        this._grid = new Array<string>(SIZE).fill(" ");
     }
 
     /**
@@ -50,7 +50,6 @@ export class Domain {
      * @returns HTTP code
      */
     public setBias(bias: string): number {
-        console.log("setBias: " + bias);
 
         if(!this._canSetBias) {
             return 409; // conflict
@@ -65,11 +64,8 @@ export class Domain {
         this._bias = bias;
         
         let handle = setTimeout((): void => {
-            // just for validation
-            // console.log(new Date(Date.now()).toString() + ", setting character bias: " + bias);
             // update state
             this._canSetBias = true;
-            // remove the handle
             clearTimeout(handle);
         }, 4000);
 

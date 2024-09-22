@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { ApiService } from '../services/api.service';
 
 import { BiasComponent } from './components/bias/bias.component';
+import { CodeComponent } from './components/code/code.component';
 import { GenerateComponent } from './components/generate/generate.component';
 import { GridComponent } from './components/grid/grid.component';
 
@@ -15,6 +16,7 @@ import { GridComponent } from './components/grid/grid.component';
     RouterOutlet,
     FormsModule,
     BiasComponent,
+    CodeComponent,
     GenerateComponent,
     GridComponent
   ],  
@@ -22,7 +24,7 @@ import { GridComponent } from './components/grid/grid.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'frontend';
+  title = 'full-stack-exercise-1223';
   grid: Array<string> | undefined;
   code: string | undefined;
 
@@ -37,7 +39,7 @@ export class AppComponent {
    * 
    */
   ngOnInit() {
-    this.updateHandle = setInterval(this.update.bind(this), 1000);    
+    this.updateHandle = setInterval(this.update.bind(this), 1000);
     this.update();
   }
 
