@@ -1,0 +1,7 @@
+<div class="grid-container">
+    @for (item of data; track $index) {
+    <div class="grid-item">{{item}}</div>
+    } @empty {
+    <div>There are no items.</div>
+    }
+</div>

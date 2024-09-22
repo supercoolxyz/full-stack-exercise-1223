@@ -1,0 +1,18 @@
+* {
+    font-size: 14px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+    color: #8A9DA4;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    font-size: large;
+    text-align: center;
+    min-width: 32px!important;
+    min-height: 32px!important;
+}
