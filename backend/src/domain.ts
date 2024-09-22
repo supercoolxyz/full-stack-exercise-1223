@@ -33,7 +33,9 @@ export class Domain {
      */
     public generate(): number {
         // only permit starting once
-        if(this._isLive) return 401;
+        if(this._isLive) {
+            return 401;
+        } 
 
         // initialize the grid for the first time
         this._isLive = true;
@@ -52,7 +54,7 @@ export class Domain {
     public setBias(bias: string): number {
 
         if(!this._canSetBias) {
-            return 409; // conflict
+            return 200; // 409 - conflict?
         }
 
         // validate input
