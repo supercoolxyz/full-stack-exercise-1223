@@ -28,4 +28,13 @@ export class ApiService {
         return this.http.patch(endpoint + '/setbias', { bias: bias });
     }
 
+    addPayment(name: string, ammount: string): any {
+        return this.http.post(endpoint + '/addpayment', { name: name, ammount: ammount });
+    }
+
+    getPayments(): any {
+        return this.http.get(endpoint + '/getpayments');
+    }
+
 }
+

@@ -1,0 +1,26 @@
+.table-container-columns {
+    display: grid;
+    grid-template-columns: auto 10% 10% 10%;
+}
+
+.table-container-column {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 4px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.header {
+    border: 1px solid;
+    font-weight: normal;
+    font-size: 16px;
+    color: #8A9DA4;
+}
+
+.column {
+    border: 1px solid;
+    font-weight: normal;
+    font-size: 16px;
+    color: black;
+}

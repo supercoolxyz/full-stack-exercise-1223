@@ -30,7 +30,7 @@ app.listen(port, () => {
 });
 
 //////////////////////////////////
-// endpoints
+// generator endpoints
 
 app.patch('/setbias', (request: Request, response: Response): any => {
     return response.status(domain.setBias(request.body.bias)).json({});
@@ -53,3 +53,14 @@ app.get('/getcode', (request: Request, response: Response): any => {
 });
 
 
+//////////////////////////////////
+// payments endpoints
+
+app.post('/addpayment', (request: Request, response: Response): any => {
+    domain.addPayment(request.body.name, request.body.ammount);
+    return response.status(200).json(domain.getPayments());
+});
+
+app.get('/getpayments', (request: Request, response: Response): any => {
+    return response.status(200).json(domain.getPayments());
+});

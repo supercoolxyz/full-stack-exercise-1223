@@ -1,57 +1,6 @@
 <main class="main">
-  <div class="content">
-    <div class="grid-container-columns">
-      <div class="grid-container-column"></div>
-      <div class="grid-container-column">
-        <div class="grid-container-columns">
-          <div class="grid-container-column">
-            <div class="center-align">
-              <app-bias></app-bias>
-            </div>
-          </div>
-          <div class="grid-container-column">
-            <div class="center-align">
-              <img src="clock.png" alt="" class="clock">
-            </div>
-          </div>
-          <div class="grid-container-column">
-            <div class="center-align">
-              <app-generate></app-generate>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="grid-container-column"></div>
-    </div>
-
-    <br>
-    <br>
-
-    <div class="grid-container-columns">
-      <div class="grid-container-column"></div>
-      <div class="grid-container-column">
-        <app-grid [data]="grid"></app-grid>
-      </div>
-      <div class="grid-container-column"></div>
-    </div>
-
-    <br>
-
-    <div class="grid-container-columns">
-      <div class="grid-container-column"></div>      
-      <div class="grid-container-column">
-        <div class="grid-container-columns">
-          <div class="grid-container-column"></div>
-          <div class="grid-container-column">
-            <app-code [data]="code"></app-code>
-          </div>
-          <div class="grid-container-column"></div>
-        </div>
-      </div>
-      <div class="grid-container-column"></div>
-    </div>
-  </div>
+  <app-navigation></app-navigation>
+  <hr>
 </main>
 
-
-<router-outlet />
+<router-outlet></router-outlet>

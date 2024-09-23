@@ -1,0 +1,32 @@
+<main>
+    <div class="grid-container-columns">
+        <div class="grid-container-column"></div>
+        <div class="grid-container-column">
+            <app-code [data]="code"></app-code>
+        </div>
+        <div class="grid-container-column"></div>
+    </div>
+
+    <div class="grid-container-columns">
+        <div class="grid-container-column">
+            <div class="grid-container-columns">
+                <div>
+                    <span class="label">NAME</span>
+                    <input type="text" placeholder="NAME" [(ngModel)]="name" />
+                </div>
+                <div>
+                    <span class="label">AMMOUNT</span>
+                    <input type="number" placeholder="AMMOUNT" [(ngModel)]="ammount" />
+                </div>
+                <div>
+                    <div class="add" (click)="addPayment()">+ ADD</div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-container-column"></div>
+        <div class="grid-container-column"></div>
+    </div>
+
+    <app-payments-list [data]="payments"></app-payments-list>
+
+</main>

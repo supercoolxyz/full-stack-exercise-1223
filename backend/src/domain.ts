@@ -5,6 +5,13 @@ const SIZE: number = ROWS * COLUMNS;
 const BIAS_SIZE: number = 20;
 const CHAR_SET_SIZE: number = 26;
 
+// used internally
+class Payment {
+    name: string | undefined;
+    ammount: string | undefined;
+    code: string | undefined;
+    grid: Array<string> | undefined;
+}
 
 /**
  *  implements domain logic
@@ -22,9 +29,34 @@ export class Domain {
     private _canSetBias: boolean = true;
     private _isLive: boolean = false;
 
+    // payments list
+    private _payments: Array<Payment> = [];
+
     constructor() {
         // initialize the grid with empty cells
         this._grid = new Array<string>(SIZE).fill(" ");
+    }
+
+    /**
+     * 
+     * @param name 
+     * @param ammount 
+     */
+    addPayment(name: string, ammount: string): void {
+        let payment = new Payment();
+        payment.name = name;
+        payment.ammount = ammount;
+        payment.code = this._code;
+        payment.grid  = this._grid;
+        this._payments.push(payment);
+    }
+
+    /**
+     * 
+     * @returns 
+     */
+    getPayments(): Array<Payment> {
+        return this._payments;
     }
 
     /**

@@ -1,67 +1,32 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-import { ApiService } from '../services/api.service';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
-import { BiasComponent } from './components/bias/bias.component';
-import { CodeComponent } from './components/code/code.component';
-import { GenerateComponent } from './components/generate/generate.component';
-import { GridComponent } from './components/grid/grid.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
+    CommonModule,
     RouterOutlet,
+    // RouterLink,
+    // RouterLinkActive,
     FormsModule,
-    BiasComponent,
-    CodeComponent,
-    GenerateComponent,
-    GridComponent
+    NavigationComponent
   ],  
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'full-stack-exercise-1223';
-  grid: Array<string> | undefined;
-  code: string | undefined;
 
-  private updateHandle: any = null;
-
-  constructor(
-    private apiService: ApiService
-  ) {
-  }
-
-  /**
-   * 
-   */
   ngOnInit() {
-    this.updateHandle = setInterval(this.update.bind(this), 1000);
-    this.update();
   }
 
-  /**
-   * 
-   */
   ngOnDestroy() {
-    clearInterval(this.updateHandle);
-  }
-
-  /**
-   * 
-   */
-  private update(): void {
-    this.apiService.getGrid().subscribe((data: Array<string>) => {
-      this.grid = data;
-    });
-
-    this.apiService.getCode().subscribe((data: string) => {
-      this.code = data;
-    });
-
   }
 }
 

@@ -1,0 +1,17 @@
+<div class="table-container-columns">
+    <div class="table-container-column header" style="text-align:left;">NAME</div>
+    <div class="table-container-column header">AMMOUNT</div>
+    <div class="table-container-column header">CODE</div>
+    <div class="table-container-column header">GRID</div>
+</div>
+
+@for (item of data; track $index) {
+<div class="table-container-columns">
+    <div class="table-container-column column" style="text-align:left;">{{item.name}}</div>
+    <div class="table-container-column column">{{item.ammount}}</div>
+    <div class="table-container-column column">{{item.code}}</div>
+    <div class="table-container-column column">{{item.grid.length}}</div>
+</div>
+} @empty {
+<div>There are no items.</div>
+}
