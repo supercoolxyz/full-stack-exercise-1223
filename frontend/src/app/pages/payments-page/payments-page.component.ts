@@ -20,7 +20,7 @@ import { Payment } from '../../../model/payment';
   styleUrl: './payments-page.component.scss'
 })
 export class PaymentsPageComponent {
-  code: string | undefined;
+  code: string = "";
 
   // user inputs
   name: string = "";
@@ -49,7 +49,7 @@ export class PaymentsPageComponent {
   }
   
   public addPayment(): void {
-    if(this.name.trim() == "" || ("" + this.ammount).trim() == "") {
+    if(this.code.trim() == "" || this.name.trim() == "" || ("" + this.ammount).trim() == "") {
       return;
     }
 
