@@ -6,6 +6,7 @@ import { ApiService } from '../../../services/api.service';
 import { CodeComponent } from '../../components/code/code.component';
 import { PaymentsListComponent } from '../../components/payments-list/payments-list.component';
 import { Payment } from '../../../model/payment';
+import { WebSocketService } from '../../../services/web-socket.service';
 
 
 @Component({
@@ -31,7 +32,8 @@ export class PaymentsPageComponent {
   private updateHandle: any = null;
 
   constructor(
-    private apiService: ApiService
+    private apiService: ApiService,
+    private webSocketService: WebSocketService
   ) {
   }
 
