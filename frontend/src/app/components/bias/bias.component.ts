@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { ApiService } from '../../../services/api.service';
 import { FormsModule } from '@angular/forms';
@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './bias.component.scss'
 })
 export class BiasComponent {
-  public bias: string = "";
+  @Input() data: string = "";
 
   constructor(
     private apiService: ApiService
@@ -41,7 +41,8 @@ export class BiasComponent {
     if (event.key === "Enter") {
       event.target.blur();
       event.preventDefault();
-      this.apiService.setBias(this.bias).subscribe((data: any) => {
+      this.apiService.setBias(this.data).subscribe((data: any) => {
+        this.data = "";
       });
     }  
   }

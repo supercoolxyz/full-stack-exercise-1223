@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { EventBroadcaster } from '../model/event.broadcaster';
+import { Payment } from '../model/payment';
 
 
 @Injectable({
@@ -6,6 +8,9 @@ import { Injectable } from '@angular/core';
 })
 export class WebSocketService {
     private ws: WebSocket | undefined;
+
+    public ebUpdateGeneratorPage: EventBroadcaster<any> = new EventBroadcaster();
+    public ebUpdatePaymentsPage: EventBroadcaster<Array<Payment>> = new EventBroadcaster();
 
     constructor() {
 
@@ -17,7 +22,7 @@ export class WebSocketService {
 
         this.ws.onopen = () => {
             console.log('connected');
-            this.ws?.send(Date.now() + "");
+            // this.ws?.send(Date.now() + "");
         }
 
         this.ws.onclose = () => {
@@ -25,11 +30,22 @@ export class WebSocketService {
         }
 
         this.ws.onmessage = (evt: MessageEvent) => {
-            console.log(`Round-trip time: ${Date.now() - parseInt(evt.data)} ms`);
+            // console.log(`Round-trip time: ${Date.now() - parseInt(evt.data)} ms`);
+            let msg = JSON.parse(evt.data);
+            switch(msg.type) {
+                case "update_generator_page": {
+                    this.ebUpdateGeneratorPage.signal({
+                        grid: msg.grid,
+                        code: msg.code
+                    });
+                    break;
+                }
 
-            // setTimeout(() => {
-            //     this.ws?.send(Date.now() + "");
-            // }, 500);
+                case "update_payments_page": {
+                    this.ebUpdatePaymentsPage.signal(msg.payments);
+                    break;
+                }
+            }
         }
     }
 }

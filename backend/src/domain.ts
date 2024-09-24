@@ -60,13 +60,14 @@ export class Domain {
     }
 
     /**
-     * Starts the generator
+     * Starts/restarts the generator
      * @returns 
      */
-    public generate(): number {
+    public generate(): void {
         // only permit starting once
         if(this._isLive) {
-            return 401;
+            this.generateGrid();
+            return;
         } 
 
         // initialize the grid for the first time
@@ -75,28 +76,28 @@ export class Domain {
 
         // update the grid automatically in two seconds interval 
         setInterval(this.generateGrid.bind(this), 2000);
-        return 200;
     }
 
     /**
      * Set character bias, the character will be inserted at least in 20% of the cells
      * @param bias value in domain['a'..'z']
-     * @returns HTTP code
+     * @returns
      */
-    public setBias(bias: string): number {
+    public setBias(bias: string): boolean {
 
         if(!this._canSetBias) {
-            return 200; // 409 - conflict?
+            return false;
         }
 
         // validate input
         if(bias < 'a' || bias > 'z') {
-            return 400; // bad request
+            return false; // bad request
         }
 
         // update bias
         this._bias = bias;
-        
+        this.generateGrid();
+
         let handle = setTimeout((): void => {
             // update state
             this._canSetBias = true;
@@ -104,7 +105,7 @@ export class Domain {
         }, 4000);
 
         this._canSetBias = false;
-        return 200;
+        return true;
     }
 
     /**
