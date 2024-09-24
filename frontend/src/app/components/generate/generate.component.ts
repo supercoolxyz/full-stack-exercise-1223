@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 import { ApiService } from '../../../services/api.service';
 
@@ -10,6 +10,8 @@ import { ApiService } from '../../../services/api.service';
   styleUrl: './generate.component.scss'
 })
 export class GenerateComponent {
+  @Output() click: EventEmitter<void> = new EventEmitter();
+  
   constructor(
     private apiService: ApiService
   ) {

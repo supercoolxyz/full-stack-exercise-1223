@@ -6,6 +6,8 @@ import { ApiService } from '../../../services/api.service';
 import { CodeComponent } from '../../components/code/code.component';
 import { PaymentsListComponent } from '../../components/payments-list/payments-list.component';
 import { Payment } from '../../../model/payment';
+import { WebSocketService } from '../../../services/web-socket.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -20,7 +22,7 @@ import { Payment } from '../../../model/payment';
   styleUrl: './payments-page.component.scss'
 })
 export class PaymentsPageComponent {
-  code: string | undefined;
+  code: string = "";
 
   // user inputs
   name: string = "";
@@ -29,9 +31,11 @@ export class PaymentsPageComponent {
   payments: Array<Payment> = [];
 
   private updateHandle: any = null;
+  private updatePage: Subscription | undefined;
 
   constructor(
-    private apiService: ApiService
+    private apiService: ApiService,
+    private webSocketService: WebSocketService
   ) {
   }
 
@@ -40,24 +44,31 @@ export class PaymentsPageComponent {
       this.payments = data;
     });
 
+    this.updatePage = this.webSocketService.ebUpdatePaymentsPage.subscribe((data: Array<Payment>) => {
+      this.payments = data;
+    });
+
     this.updateHandle = setInterval(this.update.bind(this), 1000);
     this.update();
   }
 
   ngOnDestroy() {
+    if (this.updatePage) {
+      this.updatePage.unsubscribe();
+    }
+
     clearInterval(this.updateHandle);
   }
-  
+
   public addPayment(): void {
-    if(this.name.trim() == "" || ("" + this.ammount).trim() == "") {
+    if (this.code.trim() == "" || this.name.trim() == "" || ("" + this.ammount).trim() == "") {
       return;
     }
 
-    this.apiService.addPayment(this.name, this.ammount).subscribe((data: Array<Payment>) => {
+    this.apiService.addPayment(this.name, this.ammount).subscribe(() => {
       this.name = "";
       this.ammount = "";
-      this.payments = data;
-    });    
+    });
   }
 
   private update(): void {
@@ -65,6 +76,6 @@ export class PaymentsPageComponent {
     this.apiService.getCode().subscribe((data: string) => {
       this.code = data;
     });
-  }  
+  }
 
 }

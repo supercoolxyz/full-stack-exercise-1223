@@ -19,7 +19,7 @@
                     <input type="number" placeholder="AMMOUNT" [(ngModel)]="ammount" />
                 </div>
                 <div>
-                    <div class="add" (click)="addPayment()">+ ADD</div>
+                    <button type="button" class="btn btn-primary" (click)="addPayment()">+ ADD</button>
                 </div>
             </div>
         </div>
@@ -28,5 +28,4 @@
     </div>
 
     <app-payments-list [data]="payments"></app-payments-list>
-
 </main>
